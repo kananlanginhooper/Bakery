@@ -157,7 +157,7 @@ class Bakery extends BaseClass{
                                 <br />
                                 <br />
                                 <Button variant="contained" onClick={this.GoHome}>Start Over</Button>
-                                {/*<Button variant="contained" onClick={this.CloseOutDay.bind(this)}>Stop taking orders and process</Button>*/}
+                                <Button variant="contained" onClick={this.CloseOutDay.bind(this)}>Stop taking orders and process</Button>
                             </div>
                             <Copyright/>
 
@@ -171,7 +171,7 @@ class Bakery extends BaseClass{
                     <Grid item xs={8}>
                         <Box bgcolor="#f5eade">
                             <Button className='AddCustomerBtn' variant="contained" onClick={this.AddCustomer.bind(this)}>Add Customer In This Window</Button>
-                            {/*<Button className='AddCustomerBtnNew' variant="contained" onClick={this.AddCustomerNew.bind(this)}>Add Customer In New Window</Button>*/}
+                            <Button className='AddCustomerBtnNew' variant="contained" onClick={this.AddCustomerNew.bind(this)}>Add Customer In New Window</Button>
                             {Customers}
                         </Box>
                     </Grid>

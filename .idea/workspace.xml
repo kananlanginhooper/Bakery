@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3f3d055-0b79-4623-a006-5626b2fecf00" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/bakery.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/bakery.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600097922625</updated>
       <workItem from="1600097923670" duration="82049000" />
-      <workItem from="1600273071032" duration="3235000" />
+      <workItem from="1600273071032" duration="3734000" />
     </task>
     <servers />
   </component>
