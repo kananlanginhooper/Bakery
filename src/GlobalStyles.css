@@ -1,0 +1,67 @@
+img.MainLogo{
+    width: 100%;
+    margin: auto;
+}
+
+h1.StartLink{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-weight:bold;
+    padding: 30px 0 50px 0;
+}
+
+div.Bounding{
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+   font-weight:bold;
+   padding: 0 0 50px 0;
+}
+
+.FrameBackground{
+    height: 100%;
+}
+
+.FullHeight {
+    height: 100%;
+}
+
+.AdminPanel {
+    border: 2px solid #c8955e;
+    background-color: #f5eade;
+    height:100%;
+    width:100%;
+}
+
+body{
+    height:100%
+}
+
+#app div{
+    height:100%
+}
+
+.AddCustomerBtn{
+    position: absolute !important;
+    top: 0;
+    left: 0;
+}
+
+.AddCustomerBtnNew{
+    position: absolute !important;
+    top: 40px;
+    left: 0;
+}
+
+
+pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}

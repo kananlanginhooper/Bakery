@@ -1,0 +1,31 @@
+.BreadBox{
+    width: 250px;
+    height: 250px;
+    border: 1px solid #c8955e;
+    position: relative;
+    float: left;
+    cursor: pointer;
+}
+
+img.SmallBreadImage{
+    height: 200px;
+    width: 200px;
+}
+
+img.BakingToday{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+div.BreadDiv{
+    width: 500px;
+}
+
+.ContinueButton{
+    margin-top: 20px;
+}
+
+
