@@ -39,8 +39,13 @@ export class BreadSelectionCustomer extends BaseClass{
     customerID;
     componentDidMount() {
         this.CallMount();
-        const path = window.location.pathname;
-        this.customerID = path.split('/')[2];
+        // For dynamic routing, which doesn't work on AWS Amplify...
+        // const path = window.location.pathname;
+        // this.customerID = path.split('/')[2];
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        this.customerID = urlParams.get('customerID');
 
         addEventListener("storage",(e) => {
             debugger; // BreadSelectionCustomer.js
@@ -84,7 +89,7 @@ export class BreadSelectionCustomer extends BaseClass{
         ThisCustomer.OrderPlaced = true;
         this.SaveToStateAndLocalstorage(state)
 
-        const src = '/customer/'+this.customerID;
+        const src = '/customer?customerID='+this.customerID;
         Router.reload();
     }
 

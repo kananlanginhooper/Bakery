@@ -39,7 +39,7 @@ class Bakery extends BaseClass{
         this.SaveToStateAndLocalstorage(state);
 
         if(Remote){
-            const url = '/customer/'+NextCustomerNumber;
+            const url = '/customer?customerID='+NextCustomerNumber;
             const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
             if (newWindow) newWindow.opener = null
         }

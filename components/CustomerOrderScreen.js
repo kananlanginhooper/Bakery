@@ -4,7 +4,7 @@ import styles from './CustomerOrderScreen.module.css'
 class CustomerOrderScreen extends React.Component {
 
     render() {
-        const src = '/customer/'+this.props.customerID;
+        const src = '/customer?customerID='+this.props.customerID;
         return (
             <div>
                 <img className={styles.iPhoneBackground} src='iPhoneFrame.png'/>
