@@ -36,6 +36,10 @@ class Customer extends BaseClass{
   }
 
     render() {
+        if(!this.isMounted){
+            return (<div> </div>);
+        }
+
         let state = this.state;
         let customer = state.customers.filter(data => data.id.toString() === this.customerID);
 
@@ -51,9 +55,8 @@ class Customer extends BaseClass{
                 this.Mode = 'Confirmed';
             }
         }
-        if(!this.isMounted){
-            return (<div> </div>);
-        }else if(this.Mode === 'Order'){
+
+        if(this.Mode === 'Order'){
             return (
                 <Container maxWidth="sm">
                     <Box my={4}>
@@ -110,12 +113,8 @@ class Customer extends BaseClass{
 
                         <div className="Bounding">
                             <h1 className="StartLink">
-                                There is a problem with your order.
+                                There is a problem with your order.  Someome will be contacting you shortly.
                             </h1>
-
-                            Click to Order:
-
-                            <BreadSelectionCustomer mode={this.Mode} />
 
                         </div>
                         <Copyright/>

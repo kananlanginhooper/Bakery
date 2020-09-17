@@ -6,7 +6,6 @@ import ProTip from '../src/ProTip';
 import Link from '../src/Link';
 import Copyright from '../src/Copyright';
 import BaseClass from "../context/baseclass";
-import Start from "./start";
 
 class Index extends BaseClass {
 
@@ -19,6 +18,7 @@ class Index extends BaseClass {
         return (
             <Container maxWidth="md">
                 <Box my={4}>
+
 
                     <img className='MainLogo' src='/KananHooperBakeryLogo_526_306.png'/>
 

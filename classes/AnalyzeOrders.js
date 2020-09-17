@@ -1,4 +1,5 @@
 import {Bread, SimpleBread} from '../classes/Bread'
+import Customer from '../classes/Customer'
 
 class AnalyzeOrders {
 
@@ -32,22 +33,10 @@ class AnalyzeOrders {
         // Loop through each type of bread that is for sale
         // setup Ordered Flags
         // find which breads we have a conflict on
-        // this.todaysBreadList.filter(data => data.Selected).forEach(bread => {
-        //     this.customerData.forEach(customer => {
-        //         const OrderedForThisBread = customer.Order.filter(orderItem => orderItem.BreadName === bread.BreadName)[0];
-        //
-        //         if(OrderedForThisBread.RoundSelected){
-        //             OrderedForThisBread.DeliverRound = true;
-        //         }
-        //         if(OrderedForThisBread.PanSelected){
-        //             OrderedForThisBread.PanRound = true;
-        //         }
-        //
-        //     });
-        // });
+
         const arrPossibleResults = [];
         this.arrBakingPermutations.forEach(BakingOption => {
-            const result = this.TryCombination(this.customerData, BakingOption)
+            const result = this.TryCombination(this.CopyAllCustomers(this.customerData), BakingOption)
             if(result[1]){
                 arrPossibleResults.push(result);
             }
@@ -116,6 +105,31 @@ class AnalyzeOrders {
             return TopResult;
 
         }
+    }
+
+    CopyAllCustomers(customerData){
+        const arrNewCustomers = [];
+
+        customerData.forEach(customer =>{
+            const NewCustomer = new Customer(customer.id);
+
+            // copy basic params
+            NewCustomer.Order = [];
+            NewCustomer.Remote = customer.Remote;
+            NewCustomer.OrderPlaced = customer.OrderPlaced;
+            NewCustomer.OrderIssue = customer.OrderIssue;
+            NewCustomer.OrderConfirmed = customer.OrderConfirmed;
+
+            // deep copy for orders
+            customer.Order.forEach(order => {
+                NewCustomer.Order.push({...order});
+            });
+
+            // save cloned customer
+            arrNewCustomers.push(NewCustomer);
+        });
+
+        return arrNewCustomers;
     }
 
     TestAllConflictsResolved(customerData){

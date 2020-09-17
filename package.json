@@ -11,7 +11,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "xstate": "^4.13.0",
-    "react-draggable": "^4.4.3"
+    "react-draggable": "^4.4.3",
+    "react-shepherd": "^3.3.0"
   },
   "scripts": {
     "dev": "next dev -p 8080",

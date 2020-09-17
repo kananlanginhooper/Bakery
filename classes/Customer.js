@@ -1,7 +1,6 @@
 class Customer {
 
     id;
-    name = 'john';
     Order = false;
     Remote = false;
     OrderPlaced = false;

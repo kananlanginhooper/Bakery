@@ -8,6 +8,7 @@ import Link from '../src/Link';
 import Copyright from '../src/Copyright';
 import {BreadSelection} from '../components/breadselection'
 import BaseClass from "../context/baseclass";
+import Sign from "../components/sign"
 
 class Start extends BaseClass{
 
@@ -23,8 +24,9 @@ class Start extends BaseClass{
                     <img className='MainLogo' src='/KananHooperBakeryLogo_526_306.png'/>
 
                     <div className="Bounding">
+                        <Sign Open={false} />
                         <h1 className="StartLink">
-                            Today's Starting Conditions
+                            Select Breads to bake, so we can open!
                         </h1>
 
                         Bread types to be baked today, click to select:

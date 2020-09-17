@@ -39,16 +39,12 @@ export class BreadSelectionCustomer extends BaseClass{
     customerID;
     componentDidMount() {
         this.CallMount();
-        // For dynamic routing, which doesn't work on AWS Amplify...
-        // const path = window.location.pathname;
-        // this.customerID = path.split('/')[2];
-
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         this.customerID = urlParams.get('customerID');
 
         addEventListener("storage",(e) => {
-            debugger; // BreadSelectionCustomer.js
+            // debugger; // BreadSelectionCustomer.js
             this.ReloadState();
         });
     }
@@ -63,11 +59,7 @@ export class BreadSelectionCustomer extends BaseClass{
         let state = this.state;
         let customer = state.customers.filter(data => data.id.toString() === this.customerID);
 
-        if(!customer.length) debugger
-
         const ThisCustomer = customer[0];
-
-        if(!ThisCustomer.Order) debugger
 
         const BreadType = ThisCustomer.Order.filter(bread => bread.BreadName === BreadName)[0];
 
@@ -96,6 +88,11 @@ export class BreadSelectionCustomer extends BaseClass{
     Void(){}
 
     render() {
+        if(!this.isMounted){
+            return (
+                <div></div>
+            );
+        }
 
         let AvailableBread;
         let ThisCustomer;
@@ -110,6 +107,7 @@ export class BreadSelectionCustomer extends BaseClass{
 
         let BreadDivs = [];
         if(this.Mode === 'Confirmed'){
+            debugger;
             BreadDivs = AvailableBread.map((bread) =>
                 <ShowBread key={bread.BreadName}
                            BreadName={bread.BreadName}

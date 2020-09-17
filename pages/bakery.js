@@ -16,6 +16,8 @@ import Customer from '../classes/Customer'
 import AnalyzeOrders from '../classes/AnalyzeOrders'
 import Router from "next/router";
 import theme from '../src/theme';
+import Sign from "../components/sign";
+import Crying from "../components/crying";
 
 
 class Bakery extends BaseClass{
@@ -63,7 +65,7 @@ class Bakery extends BaseClass{
     componentDidMount() {
         this.CallMount();
         addEventListener("storage",(e) => {
-            debugger; // bakery.js
+            // debugger; // bakery.js
             this.ReloadState();
             if(this.state.state === 'Process'){
                 this.CloseOutDay();
@@ -78,18 +80,22 @@ class Bakery extends BaseClass{
         const [customersAfterChanges, AllConflictsResolved, BakingSolution, MatchCount, PanCount] = Analyze.run();
         let state = this.state;
 
-        debugger;
         if(AllConflictsResolved){
             state.state = 'Complete';
             customersAfterChanges.forEach(customer => {
                 customer.OrderIssue = false;
                 customer.OrderConfirmed = true;
             });
+
+            // SAVE CUSTOMERS from copied working version to overwrite the main customer storage object
             state.customers = customersAfterChanges;
             state.BakingSolution = BakingSolution;
         }else {
+            debugger;
             state.state = 'Process';
-            state.customers = customersAfterChanges;
+            this.state.customers.forEach(customer => {
+                customer.OrderIssue = true;
+            });
         }
         this.SaveToStateAndLocalstorage(state);
 
@@ -101,22 +107,24 @@ class Bakery extends BaseClass{
 
     render() {
 
-        debugger
         const Customers = [];
 
         let OrdersWaiting = 0;
 
+        let iPhoneTop = 100;
+        let iPhoneLeft = 0;
         if(this.state.customers && this.state.customers.entries()){
             for (const [index, value] of this.state.customers.entries()) {
                 if(!value.Remote) {
-                    Customers.push(<Draggable onStart={this.handleStart} key={value.id}>
+                    Customers.push(<Draggable onStart={this.handleStart} key={value.id} defaultPosition={{ x: iPhoneLeft, y: iPhoneTop }}>
                         <div><CustomerOrderScreen customerID={value.id}/></div>
                     </Draggable>)
+                    iPhoneTop += 50;
+                    iPhoneLeft += 100;
                 }
                 if(value.OrderPlaced){
                     OrdersWaiting++;
                 }
-
             }
         }
 
@@ -147,6 +155,7 @@ class Bakery extends BaseClass{
                             <img className='MainLogo' src='/KananHooperBakeryLogo_526_306.png'/>
 
                             <div className="Bounding">
+                                <Sign Open={false} />
                                 <h1 className="StartLink">
                                     YAY!  We shipped {OrdersWaiting} order{S}!
                                 </h1>
@@ -157,7 +166,37 @@ class Bakery extends BaseClass{
                                 <br />
                                 <br />
                                 <Button variant="contained" onClick={this.GoHome}>Start Over</Button>
-                                <Button variant="contained" onClick={this.CloseOutDay.bind(this)}>Stop taking orders and process</Button>
+                                {/*<Button variant="contained" onClick={this.CloseOutDay.bind(this)}>Stop taking orders and process</Button>*/}
+                            </div>
+                            <Copyright/>
+
+                        </Box>
+                    </Grid>
+                </Grid>
+            );
+        }else if(state === 'Process'){
+
+            return (
+                <Grid container spacing={1} className='FrameBackground' >
+                    <Grid item xs={8}>
+                        <Box bgcolor="#f5eade" className='FullHeight'>
+                            {Customers}
+                        </Box>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Box bgcolor="#f5eade" p={2} className='AdminPanel'>
+                            <img className='MainLogo' src='/KananHooperBakeryLogo_526_306.png'/>
+
+                            <div className="Bounding">
+                                <Crying />
+                                <h1 className="StartLink">
+                                    No solution exists. You will have to call your customers and get one to compromise.
+                                </h1>
+
+                                <br />
+                                <br />
+                                <Button variant="contained" onClick={this.GoHome}>Start Over</Button>
+                                {/*<Button variant="contained" onClick={this.CloseOutDay.bind(this)}>Reprocess</Button>*/}
                             </div>
                             <Copyright/>
 
@@ -180,6 +219,7 @@ class Bakery extends BaseClass{
                             <img className='MainLogo' src='/KananHooperBakeryLogo_526_306.png'/>
 
                             <div className="Bounding">
+                                <Sign Open={true} />
                                 <h1 className="StartLink">
                                     Ready for Orders: {OrdersWaiting} order{S} waiting.
                                 </h1>
