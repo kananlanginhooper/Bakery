@@ -55,6 +55,7 @@ class Customer extends BaseClass{
                 this.Mode = 'Confirmed';
             }
         }
+        const DisplayCustomerNumber = this.customerID + 1;
 
         if(this.Mode === 'Order'){
             return (
@@ -75,7 +76,7 @@ class Customer extends BaseClass{
                         </div>
                         <Copyright/>
                         <p className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter">
-                            You are customer Number: {this.customerID}
+                            You are customer Number: {DisplayCustomerNumber}
                         </p>
 
                     </Box>
@@ -98,7 +99,7 @@ class Customer extends BaseClass{
                         </div>
                         <Copyright/>
                         <p className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter">
-                            You are customer Number: {this.customerID}
+                            You are customer Number: {DisplayCustomerNumber}
                         </p>
 
                     </Box>
@@ -119,7 +120,7 @@ class Customer extends BaseClass{
                         </div>
                         <Copyright/>
                         <p className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter">
-                            You are customer Number: {this.customerID}
+                            You are customer Number: {DisplayCustomerNumber}
                         </p>
 
                     </Box>
@@ -144,7 +145,7 @@ class Customer extends BaseClass{
                         </div>
                         <Copyright/>
                         <p className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter">
-                            You are customer Number: {this.customerID}
+                            You are customer Number: {DisplayCustomerNumber}
                         </p>
 
                     </Box>
