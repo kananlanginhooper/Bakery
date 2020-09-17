@@ -155,7 +155,7 @@ class Bakery extends BaseClass{
                             <img className='MainLogo' src='/KananHooperBakeryLogo_526_306.png'/>
 
                             <div className="Bounding">
-                                <Sign Open={false} />
+                                <Sign Status='Closed' />
                                 <h1 className="StartLink">
                                     YAY!  We shipped {OrdersWaiting} order{S}!
                                 </h1>
@@ -219,7 +219,7 @@ class Bakery extends BaseClass{
                             <img className='MainLogo' src='/KananHooperBakeryLogo_526_306.png'/>
 
                             <div className="Bounding">
-                                <Sign Open={true} />
+                                <Sign Status='Open' />
                                 <h1 className="StartLink">
                                     Ready for Orders: {OrdersWaiting} order{S} waiting.
                                 </h1>

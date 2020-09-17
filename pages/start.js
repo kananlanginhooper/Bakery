@@ -24,7 +24,7 @@ class Start extends BaseClass{
                     <img className='MainLogo' src='/KananHooperBakeryLogo_526_306.png'/>
 
                     <div className="Bounding">
-                        <Sign Open={false} />
+                        <Sign Status='OpenSoon' />
                         <h1 className="StartLink">
                             Select Breads to bake, so we can open!
                         </h1>
