@@ -138,7 +138,7 @@ class Bakery extends BaseClass{
         if(state === 'Complete'){
             let BakingSolutionDivs = [];
             BakingSolutionDivs = this.state.BakingSolution.map((bread) =>
-                <span key={bread.BreadName}>
+                <span key={bread.BreadName} className='BreadBaked'>
                     {bread.BreadName} in a {bread.BakingPan ? 'Pan' : 'Round' }
                 </span>
             );
@@ -160,7 +160,7 @@ class Bakery extends BaseClass{
                                     YAY!  We shipped {OrdersWaiting} order{S}!
                                 </h1>
 
-                                We baked:
+                                <h2>We baked:</h2>
                                 <br />
                                 {BakingSolutionDivs}
                                 <br />

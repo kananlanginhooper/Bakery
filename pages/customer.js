@@ -55,7 +55,7 @@ class Customer extends BaseClass{
                 this.Mode = 'Confirmed';
             }
         }
-        const DisplayCustomerNumber = this.customerID + 1;
+        const DisplayCustomerNumber = parseInt(this.customerID) + 1;
 
         if(this.Mode === 'Order'){
             return (
