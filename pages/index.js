@@ -10,7 +10,9 @@ import BaseClass from "../context/baseclass";
 class Index extends BaseClass {
 
     componentDidMount(){
+        debugger
         localStorage.clear();
+        this.StartRestart();
         this.CallMount();
     }
 

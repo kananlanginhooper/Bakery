@@ -107,7 +107,6 @@ export class BreadSelectionCustomer extends BaseClass{
 
         let BreadDivs = [];
         if(this.Mode === 'Confirmed'){
-            debugger;
             BreadDivs = AvailableBread.map((bread) =>
                 <ShowBread key={bread.BreadName}
                            BreadName={bread.BreadName}

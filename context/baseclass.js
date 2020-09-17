@@ -7,14 +7,20 @@ class BaseClass extends React.Component{
 
     constructor(props) {
         super(props);
+        this.StartRestart();
+    }
+
+    StartRestart(){
         const context = { TodaysBreadList: BreadList() };
-        const state = 'selectBread';
-        this.state = {
+        const statestate = 'selectBread';
+        const state = {
             customers: [],
             context: context,
-            state: state,
+            state: statestate,
             BakingSolution: {}
         };
+        this.state = state;
+        this.SaveToStateAndLocalstorage(state)
     }
 
     SaveToStateAndLocalstorage(state){
@@ -35,25 +41,26 @@ class BaseClass extends React.Component{
     }
 
     ReloadState(){
-        const context = localStorage.getItem('context');
-        const state = localStorage.getItem('state');
-        const customers = localStorage.getItem('customers');
-        const BakingSolution = localStorage.getItem('BakingSolution');
+        if(this.isMounted) {
+            const context = localStorage.getItem('context');
+            const state = localStorage.getItem('state');
+            const customers = localStorage.getItem('customers');
+            const BakingSolution = localStorage.getItem('BakingSolution');
 
-        if (context) {
-            this.setState({ context: JSON.parse(context) } );
-        }
+            if (context) {
+                this.setState({context: JSON.parse(context)});
+            }
+            if (state) {
+                this.setState({state: state});
+            }
 
-        if (state) {
-            this.setState({ state: state } );
-        }
+            if (customers) {
+                this.setState({customers: JSON.parse(customers)});
+            }
 
-        if (customers) {
-            this.setState({customers: JSON.parse(customers)});
-        }
-
-        if (BakingSolution) {
-            this.setState({BakingSolution: JSON.parse(BakingSolution)});
+            if (BakingSolution) {
+                this.setState({BakingSolution: JSON.parse(BakingSolution)});
+            }
         }
     }
 
