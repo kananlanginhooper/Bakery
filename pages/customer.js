@@ -29,10 +29,10 @@ class Customer extends BaseClass{
         const urlParams = new URLSearchParams(queryString);
         this.customerID = urlParams.get('customerID');
 
-        // addEventListener("storage",(e) => {
-        //     debugger; // customerID.js
-        //     this.ReloadState();
-        // });
+        addEventListener("storage",(e) => {
+            // debugger; // customerID.js
+            this.ReloadState();
+        });
   }
 
     render() {

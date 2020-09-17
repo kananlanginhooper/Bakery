@@ -160,7 +160,7 @@ class Bakery extends BaseClass{
                                     YAY!  We shipped {OrdersWaiting} order{S}!
                                 </h1>
 
-                                We are baking:
+                                We baked:
                                 <br />
                                 {BakingSolutionDivs}
                                 <br />

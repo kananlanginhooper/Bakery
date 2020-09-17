@@ -84,8 +84,16 @@ pre {
     transform-origin: 50% 0;
     -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
     animation: swinging 3.5s ease-in-out forwards infinite;
+}
+
+.sign{
     width: 200px;
     height: 150px;
+}
+
+.signSquare{
+    width: 200px;
+    height: 200px;
 }
 
 .cryingImage{
